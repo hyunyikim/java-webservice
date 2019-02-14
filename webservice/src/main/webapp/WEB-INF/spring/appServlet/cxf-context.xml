@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<!-- import로 cxf 자원들 불러오고 endpoint만들어서 어떤 address로 왔을 때 어떤 인터페이스에서 제공할 것인지 설정. -->
+	<jaxws:endpoint id="deptProcess"
+		implementor="com.spring.webservice.DeptProcessImpl" address="/DeptProcess" />
+	<jaxws:endpoint id="fileUpload"
+		implementor="com.spring.webservice.FileUploadImpl" address="/FileUpload" /> 	 	
+</beans>
